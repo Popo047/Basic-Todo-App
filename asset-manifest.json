@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Basic-Todo-App/static/css/main.0ff1ff24.chunk.css",
+    "main.js": "/Basic-Todo-App/static/js/main.3f1ea8cf.chunk.js",
+    "main.js.map": "/Basic-Todo-App/static/js/main.3f1ea8cf.chunk.js.map",
+    "runtime-main.js": "/Basic-Todo-App/static/js/runtime-main.fd50be73.js",
+    "runtime-main.js.map": "/Basic-Todo-App/static/js/runtime-main.fd50be73.js.map",
+    "static/js/2.86da7db6.chunk.js": "/Basic-Todo-App/static/js/2.86da7db6.chunk.js",
+    "static/js/2.86da7db6.chunk.js.map": "/Basic-Todo-App/static/js/2.86da7db6.chunk.js.map",
+    "static/js/3.9c9a585b.chunk.js": "/Basic-Todo-App/static/js/3.9c9a585b.chunk.js",
+    "static/js/3.9c9a585b.chunk.js.map": "/Basic-Todo-App/static/js/3.9c9a585b.chunk.js.map",
+    "index.html": "/Basic-Todo-App/index.html",
+    "static/css/main.0ff1ff24.chunk.css.map": "/Basic-Todo-App/static/css/main.0ff1ff24.chunk.css.map",
+    "static/js/2.86da7db6.chunk.js.LICENSE.txt": "/Basic-Todo-App/static/js/2.86da7db6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fd50be73.js",
+    "static/js/2.86da7db6.chunk.js",
+    "static/css/main.0ff1ff24.chunk.css",
+    "static/js/main.3f1ea8cf.chunk.js"
+  ]
+}
