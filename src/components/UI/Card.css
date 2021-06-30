@@ -1,13 +1,17 @@
 .card-container {
   width: 500px;
   overflow: hidden;
+  padding: 0;
   transition: 0.3s;
   animation: ease-in;
-}
-
-.image-container img {
-  overflow: hidden;
-  height: 300px;
+  background-color: white;
+  filter: brightness(96%);
+  margin-bottom: 25px;
+  /* border: 2px solid; */
+  border-radius: 20px;
+  box-shadow: 8px 7px 13px -1px rgba(5, 4, 4, 0.75);
+  -webkit-box-shadow: 8px 7px 13px -1px rgba(5, 4, 4, 0.75);
+  -moz-box-shadow: 8px 7px 13px -1px rgba(5, 4, 4, 0.75);
 }
 
 .card-container:hover {

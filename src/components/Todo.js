@@ -2,23 +2,39 @@ import React, { useState } from "react";
 import "./Todo.css";
 import Card from "./UI/Card";
 
+/**
+ *
+ * @returns The block component that is being rendered
+ */
 function Todo() {
   const [addTask, setAddTask] = useState("");
   const [taskDetails, setTaskDetails] = useState("");
   const [taskList, setTaskList] = useState([]);
 
-  const handleChange = (e) => {
+  /**
+   * Set Value of the title
+   * @param {*} e , is an eventListener
+   */
+  const handleTitleChange = (e) => {
     e.preventDefault();
     setAddTask(e.target.value);
   };
 
+  /**
+   *
+   * @param {*} e
+   */
   const handleDetailsChange = (e) => {
     e.preventDefault();
     setTaskDetails(e.target.value);
   };
 
-  const clickHandler = (e) => {
-    e.preventDefault();
+  /**
+   *
+   * @param {*} event
+   */
+  const clickHandler = (event) => {
+    event.preventDefault();
     if (addTask !== "" && taskDetails !== "") {
       var deets = {
         id: Math.floor(Math.random() * 10000),
@@ -29,11 +45,20 @@ function Todo() {
     }
   };
 
+  /**
+   * Delete the respective item when "Delete" button is pressed
+   * @param {*} e , eventListener
+   * @param {*} id , unique ID generated on every new task
+   */
   const deleteHandler = (e, id) => {
     e.preventDefault();
     setTaskList(taskList.filter((task) => task.id !== id));
   };
 
+  /**
+   * onFocus
+   * @param {*} e eventListener
+   */
   const focusChangeHandler = (e) => {
     e.target.value = "";
   };
@@ -48,9 +73,8 @@ function Todo() {
         <input
           type="text"
           className="form-control"
-          // placeholder="Add Task"
           aria-label="Add Task"
-          onChange={handleChange}
+          onChange={handleTitleChange}
           onFocus={focusChangeHandler}
           aria-describedby="basic-addon1"
         />
@@ -62,7 +86,6 @@ function Todo() {
         <textarea
           type="text"
           className="form-control"
-          // placeholder="Add Task"
           aria-label="Add Task"
           onChange={handleDetailsChange}
           onFocus={focusChangeHandler}
@@ -76,16 +99,16 @@ function Todo() {
       <br />
 
       {taskList !== [] ? (
-        <div className="container">
+        <div className="container" style={{ padding: "0px" }}>
           {taskList.map((task) => (
             <>
-              <Card title={task.value} body={task.notes} key={task.id} />
-              <button
-                className="btn btn-warning"
-                onClick={(e) => deleteHandler(e, task.id)}
-              >
-                Delete
-              </button>
+              <Card
+                title={task.value}
+                body={task.notes}
+                key={task.id}
+                deleteHandler={deleteHandler}
+                id={task.id}
+              />
             </>
           ))}
         </div>

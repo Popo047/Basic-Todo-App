@@ -1,11 +1,12 @@
 .c {
   max-width: 500px;
+  padding: 0;
 }
 
 .h {
   font-size: 25px;
-  margin: 30px;
-  font-style: initial;
+  /* margin: 30px; */
+
   font-weight: 500;
 }
 
