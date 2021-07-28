@@ -41,6 +41,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^27.0.6",
+    "jest-enzyme": "^7.1.2",
     "postcss": "^7.0.36",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
   }

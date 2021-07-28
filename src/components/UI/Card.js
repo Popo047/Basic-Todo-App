@@ -3,7 +3,7 @@ import "./Card.css";
 
 /**
  *
- * @param {*} title received from Todo.js
+ * @param {*}
  * @returns the card component
  */
 function Card({ title, body, deleteHandler, id }) {

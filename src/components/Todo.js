@@ -1,15 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Todo.css";
 import Card from "./UI/Card";
+import Input from "./UI/Input";
 
 /**
  *
  * @returns The block component that is being rendered
  */
 function Todo() {
-  const [addTask, setAddTask] = useState("");
-  const [taskDetails, setTaskDetails] = useState("");
-  const [taskList, setTaskList] = useState([]);
+  const [addTask, setAddTask] = useState("", () => {
+    const localTask = localStorage.getItem("task");
+    return localTask ? JSON.parse(localTask) : "";
+  });
+  const [taskDetails, setTaskDetails] = useState("", () => {
+    const localDeets = localStorage.getItem("taskDeets");
+    return localDeets ? JSON.parse(localDeets) : "";
+  });
+  const [taskList, setTaskList] = useState([], () => {
+    const localList = localStorage.getItem("taskList");
+    return localList ? JSON.parse(localList) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("task", JSON.stringify(addTask));
+    localStorage.setItem("taskDeets", JSON.stringify(taskDetails));
+    localStorage.setItem("taskList", JSON.stringify(taskList));
+  }, [addTask, taskDetails, taskList]);
+
+  const f = () => {
+    const data = [
+      {
+        title: addTask,
+        details: taskDetails,
+      },
+    ];
+    console.log(data);
+  };
+
+  f();
 
   /**
    * Set Value of the title
@@ -64,34 +92,21 @@ function Todo() {
   };
 
   return (
-    <div className="container c ">
-      <div className="h">Note Taking Application</div>
-      <div className="input-group mb-3">
-        <span className="input-group-text" id="basic-addon1">
-          Add Title
-        </span>
-        <input
-          type="text"
-          className="form-control"
-          aria-label="Add Task"
-          onChange={handleTitleChange}
-          onFocus={focusChangeHandler}
-          aria-describedby="basic-addon1"
-        />
+    <div className="container c" data-testid="notes-container">
+      <div className="h" data-testid="header">
+        Note Taking Application
       </div>
-      <div className="input-group mb-3">
-        <span className="input-group-text" id="basic-addon1">
-          Add Details
-        </span>
-        <textarea
-          type="text"
-          className="form-control"
-          aria-label="Add Task"
-          onChange={handleDetailsChange}
-          onFocus={focusChangeHandler}
-          aria-describedby="basic-addon1"
-        />
-      </div>
+      <Input
+        name="Add Title"
+        onChange={handleTitleChange}
+        onFocus={focusChangeHandler}
+      />
+      <Input
+        name="Add Task"
+        onChange={handleDetailsChange}
+        onFocus={focusChangeHandler}
+      />
+
       <button className="btn btn-primary" onClick={clickHandler}>
         Add a Task
       </button>
